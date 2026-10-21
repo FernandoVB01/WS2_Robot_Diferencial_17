@@ -4,4 +4,4 @@ log/
 __pycache__/
 *.pyc
 *.egg-info/
-evidencias/*.mp4
+evidencias/*.log

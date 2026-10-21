@@ -66,16 +66,39 @@ El controlador gira hacia cada punto y avanza hasta quedar a menos de 2.5 cm;
 limita la velocidad a 0.12 m/s y 0.65 rad/s. Si deja de llegar odometría durante
 un segundo, ordena detenerse. Es una demostración de simulación.
 
-Se conservan las mallas e inercias exportadas. Se añadieron colores azul, naranja,
+La odometría de control procede de `OdometryPublisher`: mide la posición física
+del cuerpo en Gazebo. No se usa la integración de los encoders para dibujar el
+trazo, porque puede dar un recorrido aparente si las ruedas patinan. Esto utiliza
+información ideal de la simulación; en un robot real se necesitaría localización.
+
+Se conservan las mallas visuales e inercias exportadas. Se añadieron colores azul, naranja,
 negro y gris; se alineó el eje de la rueda derecha con el izquierdo; se añadió
 DiffDrive y se corrigió `setup.cfg` para instalar el ejecutable en el paquete correcto.
 El radio de rueda es 0.0375 m. La separación entre centros de las bandas de rodadura
 es 0.16 m según los STL (y=±0.08); los pivotes del CAD están en las caras interiores
-(y=±0.07). La fricción baja del apoyo fijo permite girar al robot.
+(y=±0.07). Para el contacto físico se utilizan cilindros en las ruedas y una esfera
+sin fricción en el apoyo; se conserva su unión fija para que Gazebo aplique esa
+fricción al apoyo por separado. Esto permite girar sin arrastrar la malla del apoyo.
 
 ## Entrega
 
-Subir este proyecto a un repositorio e incluir el enlace junto con el video.
+Repositorio: https://github.com/FernandoVB01/WS2_Robot_Diferencial_17
+
+Video: [WS2_Grupo17_Simulacion.mp4](evidencias/WS2_Grupo17_Simulacion.mp4).
+Grabación real de RViz conectado a Gazebo, a 10 fotogramas por segundo, sin acelerar.
+Muestra el modelo coloreado y la trayectoria obtenida de la posición física del robot.
+La pantalla virtual usada para capturar el video no modifica la simulación.
+
+Validación ejecutada el 21 de octubre de 2026:
+
+- Compilación con `colcon build --symlink-install`: correcta.
+- Robot cargado en Gazebo Harmonic con ROS 2 Jazzy.
+- Recorrido completo del 7 y parada final comprobados.
+- Objetivo final: `(0, -2)` m; posición final: `(0.00996, -1.97814)` m.
+- Error final de posición: aproximadamente 2.40 cm, dentro de la tolerancia de 2.5 cm.
+- Datos: [odometría](evidencias/odometria_grupo17.csv) y [resultado](evidencias/validacion.json).
+
+Entregar el enlace del repositorio junto con el video.
 No subir `build/`, `install/` ni `log/`. El video debe mostrar el robot coloreado,
 el movimiento completo y el 7 terminado en RViz. No confundir el tutorial original
 con la grabación propia de la simulación. Se puede adjuntar el MP4 por separado.
@@ -85,6 +108,7 @@ con la grabación propia de la simulación. Se puede adjuntar el MP4 por separad
 - Tutorial suministrado: https://www.youtube.com/watch?v=QeWczNtf1Eo
 - Exportador indicado en los adjuntos: https://github.com/runtimerobotics/fusion360-urdf-ros2
 - DiffDrive de Gazebo Harmonic: https://gazebosim.org/api/sim/8/classgz_1_1sim_1_1systems_1_1DiffDrive.html
+- OdometryPublisher: https://gazebosim.org/api/sim/8/classgz_1_1sim_1_1systems_1_1OdometryPublisher.html
 
 Los archivos originales proceden de los adjuntos del usuario. No se declara una
 licencia nueva sobre el CAD recibido.
