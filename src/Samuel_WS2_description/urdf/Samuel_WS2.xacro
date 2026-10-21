@@ -1,0 +1,165 @@
+<?xml version="1.0" ?>
+<robot name="Samuel_WS2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Samuel_WS2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Samuel_WS2_description)/urdf/Samuel_WS2.ros2control" />
+<xacro:include filename="$(find Samuel_WS2_description)/urdf/Samuel_WS2.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0005551788655431004 1.635079723729691e-17 0.039024938736074176" rpy="0 0 0"/>
+    <mass value="8.73294837591391"/>
+    <inertia ixx="0.01159" iyy="0.034957" izz="0.04358" ixy="-0.0" iyz="-0.0" ixz="-7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"><color rgba="0.04 0.32 0.85 1"/></material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="1.0052123437711858e-17 0.0 0.0050000000000000044" rpy="0 0 0"/>
+    <mass value="0.2219535209761188"/>
+    <inertia ixx="5.2e-05" iyy="5.2e-05" izz="0.0001" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="orange"><color rgba="1 0.38 0.03 1"/></material>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="-0.029774204142965555 -6.487383716397043e-18 0.00999018280844411" rpy="0 0 0"/>
+    <mass value="0.06405773665634809"/>
+    <inertia ixx="4e-06" iyy="4e-06" izz="4e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.11 -0.0 -0.0575" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="dark"><color rgba="0.06 0.07 0.09 1"/></material>
+  </visual>
+  <collision>
+    <origin xyz="-0.11 -0.0 -0.0575" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_1">
+  <inertial>
+    <origin xyz="0.06249999999999999 -3.4277710037994564e-18 -0.006391402495744707" rpy="0 0 0"/>
+    <mass value="0.1627226693245905"/>
+    <inertia ixx="2.2e-05" iyy="2.2e-05" izz="3.8e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0025 -0.0 -0.0175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gray"><color rgba="0.4 0.45 0.5 1"/></material>
+  </visual>
+  <collision>
+    <origin xyz="0.0025 -0.0 -0.0175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-2.0816681711721685e-16 0.010000000000000023 6.938893903907228e-17" rpy="0 0 0"/>
+    <mass value="0.6936047530503714"/>
+    <inertia ixx="0.000267" iyy="0.000488" izz="0.000267" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07 -0.07 -0.0375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="rubber"><color rgba="0.025 0.025 0.03 1"/></material>
+  </visual>
+  <collision>
+    <origin xyz="0.07 -0.07 -0.0375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-4.163336342344337e-17 -0.009999999999999995 1.457167719820518e-16" rpy="0 0 0"/>
+    <mass value="0.6936047530503714"/>
+    <inertia ixx="0.000267" iyy="0.000488" izz="0.000267" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07 0.07 -0.0375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="rubber"><color rgba="0.025 0.025 0.03 1"/></material>
+  </visual>
+  <collision>
+    <origin xyz="0.07 0.07 -0.0375" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find Samuel_WS2_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="lidarjoint" type="fixed">
+  <origin xyz="0.0 0.0 0.0775" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="camerajoint" type="fixed">
+  <origin xyz="0.11 0.0 0.0575" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="castorjoint" type="fixed">
+  <origin xyz="-0.0025 0.0 0.0175" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="castor_1"/>
+</joint>
+
+<joint name="left_joint" type="continuous">
+  <origin xyz="-0.07 0.07 0.0375" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_joint" type="continuous">
+  <origin xyz="-0.07 -0.07 0.0375" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+</robot>
