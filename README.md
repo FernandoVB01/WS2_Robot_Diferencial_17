@@ -110,5 +110,3 @@ con la grabación propia de la simulación. Se puede adjuntar el MP4 por separad
 - DiffDrive de Gazebo Harmonic: https://gazebosim.org/api/sim/8/classgz_1_1sim_1_1systems_1_1DiffDrive.html
 - OdometryPublisher: https://gazebosim.org/api/sim/8/classgz_1_1sim_1_1systems_1_1OdometryPublisher.html
 
-Los archivos originales proceden de los adjuntos del usuario. No se declara una
-licencia nueva sobre el CAD recibido.
