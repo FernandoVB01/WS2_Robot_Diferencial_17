@@ -1,11 +1,36 @@
 # WS2 — Grupo 17: trayectoria del número 7
 
+**Autores — Grupo 17:**
+
+- Luis Fernando Vélez Burgos
+- Samuel Gabriel Salazar Espinoza
+
 Robot diferencial exportado de Fusion 360, simulado en ROS 2 Jazzy y Gazebo Harmonic.
 El código conserva el nombre del paquete entregado: `Samuel_WS2_description`.
 ROS recomienda nombres en minúsculas; este nombre produce una advertencia al compilar.
 
+## Modelo CAD e imágenes
+
+Se incluye la [exportación original de Fusion 360](cad/Samuel_WS2_description_original.zip),
+sin modificaciones, con sus mallas STL, URDF y configuración original.
+Las [piezas STL](src/Samuel_WS2_description/meshes/) también están disponibles individualmente.
+El archivo recibido es una exportación para ROS 2; no contiene el proyecto editable `.f3d` o `.f3z`.
+
+Estas vistas se renderizaron a partir de las mallas del robot recibido, con los colores
+del proyecto. No son capturas de la interfaz de Fusion 360.
+
+![Vista isométrica del modelo CAD](imagenes/robot_cad_isometrica.png)
+
+![Vistas superior y lateral del modelo CAD](imagenes/robot_cad_vistas.png)
+
+**Simulación del número 7:**
+
+![Trayectoria completada en RViz](evidencias/resultado_grupo17.jpg)
+
 ## Contenido
 
+- `cad/`: exportación original del CAD recibido.
+- `imagenes/`: vistas del robot renderizadas desde sus mallas STL.
 - `src/Samuel_WS2_description/urdf/`: modelo, colores y plugin diferencial.
 - `src/Samuel_WS2_description/meshes/`: geometría STL del CAD original.
 - `src/Samuel_WS2_description/Samuel_WS2_description/trayectoria.py`: seguimiento del 7 por odometría.
